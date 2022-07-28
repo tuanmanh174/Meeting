@@ -47,9 +47,38 @@ namespace MeetingAppCore.Repository
             _context.Connections.Remove(connection);
         }
 
-        public void AddRoom(Room room)
+        public void AddRoom(Room room, List<MeetingUserDto> meetingUser)
         {
-            _context.Rooms.Add(room);
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    _context.Rooms.Add(room);
+                    _context.SaveChanges();
+
+
+
+                    foreach (var item in meetingUser)
+                    {
+                        var _meetingUser = new MeetingUser();
+                        _meetingUser.RoomId = item.RoomId;
+                        _meetingUser.UserId = item.UserId;
+                        _context.MeetingUsers.Add(_meetingUser);
+                        _context.SaveChanges();
+                    }
+
+
+
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ex.ToString();
+                    transaction.Rollback();
+                }
+            }
+
+
         }
 
         /// <summary>
@@ -60,7 +89,7 @@ namespace MeetingAppCore.Repository
         public async Task<Room> DeleteRoom(int id)
         {
             var room = await _context.Rooms.FindAsync(id);
-            if(room != null)
+            if (room != null)
             {
                 _context.Rooms.Remove(room);
             }
@@ -93,7 +122,7 @@ namespace MeetingAppCore.Repository
         public async Task UpdateCountMember(int roomId, int count)
         {
             var room = await _context.Rooms.FindAsync(roomId);
-            if(room != null)
+            if (room != null)
             {
                 room.CountMember = count;
             }

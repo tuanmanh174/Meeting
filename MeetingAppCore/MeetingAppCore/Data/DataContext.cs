@@ -17,6 +17,7 @@ namespace MeetingAppCore.Data
 
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Connection> Connections { get; set; }
+        public DbSet<MeetingUser> MeetingUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

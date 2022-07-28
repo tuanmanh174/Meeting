@@ -5785,19 +5785,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ken17\\.nuget\\packages\\": {}
+    "C:\\Users\\admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\Meeting\\MeetingAppFull\\MeetingAppCore\\MeetingAppCore\\MeetingAppCore.csproj",
+      "projectUniqueName": "C:\\Project\\Meeting\\MeetingAppCore\\MeetingAppCore\\MeetingAppCore.csproj",
       "projectName": "MeetingAppCore",
-      "projectPath": "D:\\Project\\Meeting\\MeetingAppFull\\MeetingAppCore\\MeetingAppCore\\MeetingAppCore.csproj",
-      "packagesPath": "C:\\Users\\ken17\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\Meeting\\MeetingAppFull\\MeetingAppCore\\MeetingAppCore\\obj\\",
+      "projectPath": "C:\\Project\\Meeting\\MeetingAppCore\\MeetingAppCore\\MeetingAppCore.csproj",
+      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Project\\Meeting\\MeetingAppCore\\MeetingAppCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ken17\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5872,7 +5872,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
       }
     }
   }

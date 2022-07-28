@@ -13,7 +13,7 @@ namespace MeetingAppCore.Interfaces
         Task<Room> GetRoomById(int roomId);
         Task<Room> GetRoomForConnection(string connectionId);
         void RemoveConnection(Connection connection);
-        void AddRoom(Room room);
+        void AddRoom(Room room, List<MeetingUserDto> meetingUser);
         Task<Room> DeleteRoom(int id);
         Task<Room> EditRoom(int id, string newName);
         Task DeleteAllRoom();
