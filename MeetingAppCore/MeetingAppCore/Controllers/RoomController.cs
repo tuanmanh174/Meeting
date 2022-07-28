@@ -36,11 +36,20 @@ namespace MeetingAppCore.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddRoom(string name)
+        public async Task<ActionResult> AddRoom(InsertRoomDto insertRoom)
         {
-            var room = new Room { RoomName = name, UserId = User.GetUserId() };
+            var room = new Room
+            {
+                RoomName = insertRoom.RoomName,
+                UserId = User.GetUserId(),
+                MeetingFile = insertRoom.MeetingFile,
+                MeetingNote = insertRoom.MeetingNote,
+                MeetingPlaceId = insertRoom.MeetingPlaceId,
+                TimeMeeting = insertRoom.TimeMeeting,
+                TimeRange = insertRoom.TimeRange
+            };
 
-            _unitOfWork.RoomRepository.AddRoom(room);
+            _unitOfWork.RoomRepository.AddRoom(room, insertRoom.MeetingUser);
 
             if (await _unitOfWork.Complete())
             {
@@ -54,7 +63,7 @@ namespace MeetingAppCore.Controllers
         public async Task<ActionResult> EditRoom(int id, string editName)
         {
             var room = await _unitOfWork.RoomRepository.EditRoom(id, editName);
-            if(room != null)
+            if (room != null)
             {
                 if (_unitOfWork.HasChanges())
                 {
@@ -78,7 +87,7 @@ namespace MeetingAppCore.Controllers
         {
             var entity = await _unitOfWork.RoomRepository.DeleteRoom(id);
 
-            if(entity != null)
+            if (entity != null)
             {
                 if (await _unitOfWork.Complete())
                     return Ok(new RoomDto { RoomId = entity.RoomId, RoomName = entity.RoomName, UserId = entity.UserId.ToString() });

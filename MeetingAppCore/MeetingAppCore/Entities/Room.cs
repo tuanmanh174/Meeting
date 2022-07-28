@@ -14,6 +14,12 @@ namespace MeetingAppCore.Entities
         public int RoomId { get; set; }
         public string RoomName { get; set; }
         public int CountMember { get; set; }
+        public DateTime? TimeMeeting { get; set; }
+        public int? TimeRange { get; set; }
+        public int? MeetingPlaceId { get; set; }
+        public string MeetingNote { get; set; }
+        public string MeetingFile { get; set; }
+        
 
         public AppUser AppUser { get; set; }
         public Guid UserId { get; set; }
